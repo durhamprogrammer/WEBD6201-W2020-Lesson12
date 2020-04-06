@@ -13,6 +13,11 @@ router.get('/add', contactController.displayAddPage);
 /* POST Route to process the Add page */
 router.post('/add', contactController.processAddPage);
 
+/* GET Route to display the Edit page */
+router.get('/edit/:id', contactController.displayEditPage);
+
+/* POST Route to process the Edit page */
+router.post('/edit/:id', contactController.processEditPage);
 
 
 /* GET request to perform the delete action */

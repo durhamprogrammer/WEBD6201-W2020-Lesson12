@@ -21,6 +21,35 @@ module.exports.displayContactList = (req, res, next) =>{
     });
 };
 
+module.exports.displayAddPage = (req, res, next) => {
+    res.render('contacts/add',{
+        title: 'Add New Contact'
+    })
+};
+
+module.exports.processAddPage = (req, res, next) => {
+    let newContact = contactModel({
+        "firstName": req.body.firstName,
+        "lastName": req.body.lastName,
+        "contactNumber": req.body.contactNumber
+    });
+
+    contactModel.create(newContact, (err, contactModel) =>
+    {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            // refresh the contact list
+            res.redirect('/contact-list');
+        }
+    });
+};
+
+
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
 

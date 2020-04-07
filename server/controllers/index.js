@@ -9,6 +9,7 @@ let User = userModel.User; // alias
 /* CONTROLLERS SECTION */
 module.exports.displayHome = (req, res, next) =>
 {
+
   res.render('index', 
     { 
       title: 'Home',
@@ -68,7 +69,7 @@ module.exports.displayLogin = (req, res, next) =>
   {
     return res.redirect("/");
   }
- 
+
 }
 
 module.exports.processLoginPage = (req, res, next) => 

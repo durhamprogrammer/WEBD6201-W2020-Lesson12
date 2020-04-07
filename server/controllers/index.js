@@ -73,6 +73,7 @@ module.exports.displayLogin = (req, res, next) =>
 
 module.exports.processLoginPage = (req, res, next) => 
 {
+
   passport.authenticate('local', 
   (err, user, info) => {
     // server error
@@ -85,6 +86,7 @@ module.exports.processLoginPage = (req, res, next) =>
     if(!user)
     {
       req.flash("loginMessage", "Authentication Error");
+      console.log(err);
       return res.redirect('/login');
     }
 
@@ -128,7 +130,7 @@ module.exports.processRegisterPage = (req, res, next) =>
     displayName: req.body.displayName
   });
 
-  user.register(newUser, req.body.password, (err) => {
+  User.register(newUser, req.body.password, (err) => {
     if(err)
     {
       console.log('Error: Inserting New User');

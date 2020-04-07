@@ -50,5 +50,20 @@ router.post('/login', (req, res, next) =>
   controllers.processLoginPage(req, res, next);
 });
 
+/* GET display register page */
+router.get('/register', (req, res, next) => {
+  controllers.displayRegisterPage(req, res, next);
+});
+
+/* POST process the register page */
+router.post('/register', (req, res, next) => {
+  controllers.processRegisterPage(req, res, next);
+});
+
+/* GET perform logout */
+router.get('/logout', (req, res, next) => {
+  controllers.performLogout(req, res, next);
+});
+
 
 module.exports = router;

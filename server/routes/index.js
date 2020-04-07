@@ -7,43 +7,48 @@ let controllers = require('../controllers/index');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  controllers.displayHome(res);
+  controllers.displayHome(req, res, next);
 });
 
 router.get('/home', (req, res, next) => {
-  controllers.displayHome(res);
+  controllers.displayHome(req, res, next);
 });
 
 /* GET about page */
 router.get('/about', (req, res, next) =>
   {
-    controllers.displayAbout(res);
+    controllers.displayAbout(req, res, next);
 });
 
 /* GET contact page */
 router.get('/contact', (req, res, next) =>
   {
-    controllers.displayContact(res);
+    controllers.displayContact(req, res, next);
 });
 
 /* GET products page */
 router.get('/products', (req, res, next) =>
   {
-    controllers.displayProducts(res);
+    controllers.displayProducts(req, res, next);
 });
 
 /* GET services page */
 router.get('/services', (req, res, next) =>
   {
-    controllers.displayServices(res);
+    controllers.displayServices(req, res, next);
 });
 
-/* GET login page */
+/* GET display login page */
 router.get('/login', (req, res, next) =>
   {
-    controllers.displayLogin(res);
+    controllers.displayLogin(req, res, next);
 });
 
+/* POST process the login page */
+router.post('/login', (req, res, next) =>
+{
+  controllers.processLoginPage(req, res, next);
+});
 
 
 module.exports = router;
